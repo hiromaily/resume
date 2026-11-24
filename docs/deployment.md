@@ -33,3 +33,5 @@ Render redeploys when changes reach the linked branch with auto-deploy enabled. 
 ## Data lifetime
 
 The demo uses in-memory SQLite. Accounts, resumes, and share links disappear on every restart, redeploy, or idle shutdown. Use sample data. Render Free stops the service after 15 minutes without incoming traffic, and the first request after an idle shutdown can take about a minute. [Render free-tier limits](https://render.com/docs/free)
+
+See [Persist deployment data on Render](deployment-persistence.md) for external database options and the proposed integration.
