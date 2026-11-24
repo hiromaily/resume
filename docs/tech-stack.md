@@ -15,7 +15,7 @@ Versions are pinned in `package.json` without `^` (the `latest` as of 2026-10-31
 | [simple-icons](https://simpleicons.org/) | 16.36.0 | Technology icons (SVG paths and brand colors) | Installed from npm and served by our server (no reliance on a CDN) |
 | TypeScript | 7.0.2 | Type checking (`bun run typecheck` = `tsc --noEmit`). Bun runs the code directly | ― |
 | @types/bun | 1.4.4 | Types for Bun | ― |
-| [Biome](https://biomejs.dev/) | 2.6.4 | Lint and format (`bun run lint` = `biome check .`, `bun run format` = `biome check --write .`). Config is `poc/biome.json` | One tool and one config handle lint, formatting and import sorting, and it is fast (written in Rust) |
+| [Biome](https://biomejs.dev/) | 2.6.4 | Lint and format (`bun run lint` = `biome check .`, `bun run format` = `biome check --write .`). Config is `biome.json` | One tool and one config handle lint, formatting and import sorting, and it is fast (written in Rust) |
 | Claude CLI (optional) | ― | Translation drafts (`TRANSLATOR=claude-cli`). Used only when `claude` is on PATH and logged in | Lets us try it with the local login, without the provider's SDK or an API key |
 
 Biome covers TS, TSX, JSON and CSS. **Markdown is excluded, and CSS is linted but not formatted** (2.6 column-aligns Markdown tables and expands one-line CSS rules into multiple lines; both only add lines and tokens). The formatting settings (2 spaces, double quotes, 120 columns) match the code as it was before Biome was introduced.
@@ -33,7 +33,6 @@ htmx uses `latest`, 2.0.11 (the `next` dist-tag is 4.0.0, but we don't adopt it)
 | Input validation libraries (Zod, etc.) | Keep dependencies minimal | Hand-written validation (`src/auth/validation.ts`, `src/resume/validation.ts`) |
 | JWT | For a same-origin MPA, server-side sessions that can be revoked immediately are safer and simpler | Sessions stored in the DB (a random token in the cookie, its hash in the DB) |
 | CDNs | No external dependencies at runtime | Serve htmx and icons from our own server |
-| The parent repository's Biome config | Treated as separate (excluded by `"!poc"` in the parent's `biome.json`) | `poc/biome.json` |
 | ESLint, Prettier, oxlint | More tools and config files | Biome |
 
 ## Checking and upgrading versions

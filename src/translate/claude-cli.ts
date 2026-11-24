@@ -16,8 +16,8 @@ export function buildClaudeArgs(command: string): string[] {
 
 /** The default runner. Passes the text only via stdin and kills the child process on timeout */
 const defaultRun: Runner = async (cmd, { stdin, timeoutMs }) => {
-  // Run in an empty temporary directory so it does not read the parent repository's CLAUDE.md, settings or hooks
-  const cwd = await mkdtemp(join(tmpdir(), "poc-translate-"));
+  // Run in an empty temporary directory to avoid loading the app repository's Claude instructions, settings or hooks
+  const cwd = await mkdtemp(join(tmpdir(), "resume-translate-"));
   let proc: ReturnType<typeof Bun.spawn>;
   try {
     proc = Bun.spawn(cmd, { cwd, stdin: "pipe", stdout: "pipe", stderr: "pipe" });

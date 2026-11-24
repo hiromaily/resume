@@ -2,7 +2,6 @@
 
 A testbed for **an MPA built with Bun + Hono + htmx**, as a technology choice that reduces token costs when AI does the development.
 As a sample, it contains an app for software engineers to register, view and share their resumes via share links.
-This directory is treated as separate from the parent repository (it is outside the parent's pnpm, Biome config, CI and rules. Biome is configured separately in `poc/biome.json`).
 
 - Spec (what we build, why, and what was decided): [docs/spec.md](docs/spec.md)
 
@@ -13,8 +12,9 @@ This directory is treated as separate from the parent repository (it is outside 
 
 ## Running
 
+From the repository root, run:
+
 ```sh
-cd poc
 bun install
 bun run dev        # http://localhost:3000
 ```

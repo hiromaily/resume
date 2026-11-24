@@ -1,6 +1,6 @@
 # Development tips
 
-Run all commands in `poc/`.
+Run all commands from the repository root.
 
 ## Everyday commands
 
@@ -33,7 +33,7 @@ bun run lint                         # Biome check (no fixes; fix remaining find
 ## Checking in a browser
 
 - To avoid polluting your local data, start on another port with a temporary DB:
-  `PORT=3300 DATABASE_URL=/tmp/poc-check/app.db bun src/index.ts`
+  `PORT=3300 DATABASE_URL=/tmp/resume-check/app.db bun src/index.ts`
 - CSP violations show up in the browser console (`Refused to ...`). Look at least once after changing the UI
 - Delete buttons show a confirmation dialog via `hx-confirm`. When driving the browser automatically, don't click them, since the dialog blocks further actions
 

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "resume-poc",
+      "name": "resume",
       "dependencies": {
         "hono": "4.13.14",
         "htmx.org": "2.0.11",
