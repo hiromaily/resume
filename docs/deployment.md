@@ -6,7 +6,7 @@ The [Blueprint](../render.yaml) defines a Free Web Service. Render's Node runtim
 
 1. Push the branch containing `render.yaml` to GitHub.
 2. In the [Render Dashboard](https://dashboard.render.com/), select **New → Blueprint** and choose `hiromaily/resume`. If prompted, grant Render access to that repository.
-3. Select `main` and the root `render.yaml`. Review the Blueprint and confirm that `resume-poc` is a **Free** Web Service before deploying.
+3. Set the Blueprint name to `resume` and select `main` and the root `render.yaml`. Review the Blueprint and confirm that `resume` is a **Free** Web Service before deploying.
 4. Wait until the service is live. Render uses `/login` as its HTTP health check.
 5. Open the service's `onrender.com` URL over HTTPS. Use a test account to save a sample resume and check that its share link opens in a private browser window.
 

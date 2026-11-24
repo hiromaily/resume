@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: resume-poc
+    name: resume
     runtime: node
     plan: free
     buildCommand: bun install --frozen-lockfile --production
