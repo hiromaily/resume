@@ -1,6 +1,24 @@
 # Deploy the demo on Render
 
-The [Blueprint](../render.yaml) defines a Free Web Service. Render's Node runtime provides Bun. The build installs production dependencies from the lockfile, and the start command runs the app with Bun. Render supplies `PORT`. The app enables secure session cookies and leaves Claude CLI translation disabled.
+## Current Render environment
+
+The demo is live at [resume-fgud.onrender.com](https://resume-fgud.onrender.com/). The `resume` Blueprint manages the `resume` Web Service on the Free plan and uses [render.yaml](../render.yaml) from `hiromaily/resume` on `main`. Render's Node runtime provides Bun.
+
+| Setting | Value |
+| --- | --- |
+| Build command | `bun install --frozen-lockfile --production` |
+| Start command | `bun run start` |
+| HTTP health check | `/login` |
+| `BUN_VERSION` | `1.4.4` |
+| `DB_DRIVER` | `sqlite` |
+| `DATABASE_URL` | `:memory:` |
+| `SECURE_COOKIES` | `true` for HTTPS-only session cookies |
+| `PORT` | Supplied by Render |
+| `TRANSLATOR` | Unset. Claude CLI translation is disabled. |
+
+## Demo accounts
+
+The demo starts with an empty database. From the login page, choose **新規登録** and sign up with an email address and a password of 12 to 128 characters. Use those credentials to log in. Sign up again after a database reset.
 
 ## First deploy
 
