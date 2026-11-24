@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: resume-poc
+    runtime: node
+    plan: free
+    buildCommand: bun install --frozen-lockfile --production
+    startCommand: bun run start
+    healthCheckPath: /login
+    envVars:
+      - key: BUN_VERSION
+        value: "1.4.4"
+      - key: DB_DRIVER
+        value: sqlite
+      - key: DATABASE_URL
+        value: ":memory:"
+      - key: SECURE_COOKIES
+        value: "true"

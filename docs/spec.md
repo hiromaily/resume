@@ -24,7 +24,7 @@ Build that foundation in `poc/` and put a sample app on it: a resume app for sof
 - Measuring or comparing token cost
 - Passkeys (WebAuthn). Keep authentication inside `src/auth/` so they can be added later
 - DBs other than SQLite (only the switching point exists)
-- Deployment, CI, production operation
+- CI and production operation
 - Share-link expiry, naming individual viewers (e.g. allowing by email address)
 - PDF export, multiple resumes per user
 - Languages other than Japanese and English
@@ -32,6 +32,10 @@ Build that foundation in `poc/` and put a sample app on it: a resume app for sof
 - Translating the edit screen, login screen, etc. into English
 - Saving drafts automatically, or syncing content between the two languages (e.g. updating the English when the Japanese is edited)
 - Separate share links per language
+
+## Deployment
+
+- Deploy the PoC on Render's free tier (user, 2026-11-24). The demo uses in-memory SQLite and leaves Claude CLI translation disabled.
 
 ## Anti-goals (failure even if it works)
 
@@ -159,7 +163,7 @@ If a resume is written in one language, the other can be **drafted by AI and cor
 - **The only implementation is the local Claude CLI** (user, 2026-10-31). It runs without tools, with a timeout, and its output is validated
 - When no translator is configured, translation is disabled: no draft bar, and the draft routes return an error
 
-**Caution**: anyone can sign up, so while translation is enabled, any logged-in user can run the host's Claude CLI with the host's login. Deployment is a non-goal, so this is accepted for the PoC. Disable it or switch the implementation before making the app public.
+**Caution**: anyone can sign up, so while translation is enabled, any logged-in user can run the host's Claude CLI with the host's login. The public Render demo leaves translation disabled.
 
 ### Separation from the parent repository
 

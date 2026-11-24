@@ -27,6 +27,10 @@ bun run dev        # http://localhost:3000
 | `TRANSLATOR` | (none) | Translation implementation. If unset, translation is disabled. `claude-cli` (for local use; `claude` must be on PATH and logged in) |
 | `SECURE_COOKIES` | (none) | `true` adds `Secure` to the cookie and renames it to `__Host-sid` (for HTTPS) |
 
+## Deploy a demo on Render
+
+See [Deployment on Render](docs/deployment.md) for setup, verification, and free-tier limits.
+
 ## Checks
 
 ```sh

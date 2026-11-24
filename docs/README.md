@@ -8,6 +8,7 @@ Pick the document by what you want to know. Each thing is written in one place o
 | Directory layout, each file's role, route list, request flow, DB abstraction, auth and security | [architecture.md](architecture.md) |
 | How to start, test and debug, and the pitfalls actually hit in this PoC | [development-tips.md](development-tips.md) |
 | How-tos for common changes (adding a page, a chip field, a DB, a position, a technology alias) | [recipes.md](recipes.md) |
+| How to deploy and verify the demo on Render | [deployment.md](deployment.md) |
 | What we build, why, and what was decided (the user's decisions, with dates) | [spec.md](spec.md) |
 | Design docs and implementation plans as written at the time (a record of past work; not kept up to date) | [superpowers/](superpowers/) |
 
