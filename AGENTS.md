@@ -1,13 +1,8 @@
-# AGENTS.md (poc)
+# AGENTS.md
 
 A resume app for software engineers. A PoC built as **an MPA with Bun + Hono + htmx**, testing a technology choice and architecture that reduce token costs when AI does the development.
 
 This file is a router. Read the docs for details.
-
-## This directory is separate
-
-Treat `poc/` as **separate** from the parent repository (the car showroom area map). The rules in the parent's AGENTS.md and CLAUDE.md (pnpm, Biome, where Zod schemas go, the glossary, the spec workflow, etc.) do not apply here.
-Do not bring in the parent's business terms or code. The only thing touching the parent is `"!poc"` in the root `biome.json` (which excludes this directory from the parent's lint).
 
 ## Documents to read
 
@@ -20,7 +15,7 @@ Do not bring in the parent's business terms or code. The only thing touching the
 | How to add a page, a chip field, a DB, a position, or a technology alias | [docs/recipes.md](docs/recipes.md) |
 | What we are building and what the user decided | [docs/spec.md](docs/spec.md) |
 
-## Commands (all run in poc/)
+## Commands (run from the repository root)
 
 ```sh
 export PATH="$HOME/.bun/bin:$PATH"   # when bun is not found

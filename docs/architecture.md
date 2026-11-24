@@ -5,7 +5,7 @@ An MPA where the server returns HTML. htmx is used only to "swap fragments", and
 ## Directory layout
 
 ```
-poc/
+./
   package.json  tsconfig.json  bun.lock  .gitignore  README.md
   data/                      SQLite files (not tracked by git; delete to reset to the initial state)
   public/app.css             the one and only CSS file
@@ -134,7 +134,7 @@ route ──▶ c.var.translator (Translator | null: src/translate/ports.ts) ─
 - `Translator.translate(texts, from, to)` takes a string or an array of strings per key and returns the same keys with the same types (arrays of the same length)
 - If `TRANSLATOR` is unset, `createTranslator` returns `null` and translation is disabled (`c.var.translator` is `null`)
 - Provider failures, timeouts and malformed results all become `TranslationError`. Each implementation passes its result through `assertSameShape` before returning it
-- `claude-cli` (`src/translate/claude-cli.ts`) runs `claude -p` as a child process. The prompt (instructions plus the text as JSON) is passed via stdin rather than arguments, and the child process is killed on timeout (default 120 seconds). To keep it from reading the parent repository's CLAUDE.md and settings, it runs in an empty temporary directory (deleted afterwards), and `--strict-mcp-config` keeps it from loading MCP servers. `stderr` may contain the text, so it is not included in error messages
+- `claude-cli` (`src/translate/claude-cli.ts`) runs `claude -p` as a child process. The prompt (instructions plus the text as JSON) is passed via stdin rather than arguments, and the child process is killed on timeout (default 120 seconds). It runs in an empty temporary directory (deleted afterwards) to avoid loading the app repository's Claude instructions and settings. The `--strict-mcp-config` flag keeps it from loading MCP servers. `stderr` may contain the text, so it is not included in error messages
 - **Caution**: translating sends the text to the provider (Anthropic). Anyone can sign up, so with `TRANSLATOR` enabled, any logged-in user can run the host's CLI (with the host's login). The public Render demo leaves `TRANSLATOR` unset
 - Tests pass the fake execution from `test/fake-translator.ts` to `testApp({ translator })`
 

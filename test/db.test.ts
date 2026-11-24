@@ -14,7 +14,7 @@ test("未対応の DB_DRIVER はエラー", () => {
 });
 
 test("古いスキーマ（*_en の無い DB）を開くと列が足され、日本語の本文は保たれる", async () => {
-  const path = join(mkdtempSync(join(tmpdir(), "poc-db-")), "old.sqlite");
+  const path = join(mkdtempSync(join(tmpdir(), "resume-db-")), "old.sqlite");
   // The resumes / projects definitions before the *_en columns were added
   const old = new Database(path, { strict: true });
   old.run(

@@ -7,14 +7,13 @@ Each decision is marked with who made it and when: **(user, date)** for decision
 ## Purpose
 
 Test **an MPA (Multi-Page Application) built with Bun + Hono + htmx** as a technology choice and architecture that can reduce token cost when AI does the development (user, 2026-10-31).
-Build that foundation in `poc/` and put a sample app on it: a resume app for software engineers (register, view, share via a link).
+Use a resume app for software engineers to test the foundation. The app supports registering, viewing and sharing resumes via a link.
 
 - Measuring the token-cost effect is **out of scope** (it has already been evaluated separately). This PoC confirms that an app can actually be built with this stack, and what shape the foundation takes
-- `poc/` is **cut off from outside context**. The parent repository's (car showroom area map) business domain, terminology and rules are not brought in
 
 ## Goals
 
-1. A Hono + htmx MPA foundation, self-contained in `poc/`, that runs with `bun install` → `bun run dev`
+1. A Hono + htmx MPA foundation that runs with `bun install` → `bun run dev`
 2. An abstracted DB, so SQLite can be swapped for another DB without changing app code
 3. Sample app: sign-up, login, registering and viewing your own resume, and viewing via a share link
 4. The resume body text can be kept in Japanese and English, the viewer switches between them, and the other language can be drafted by AI (user, 2026-10-31)
@@ -41,7 +40,6 @@ Build that foundation in `poc/` and put a sample app on it: a resume app for sof
 
 - It becomes an SPA (a client-side JS framework or a build step). **The only client JS is htmx**
 - Depending on external CDNs or services at runtime. htmx and icons are served from our own server. The one exception is translation, which is an add-on that is disabled and shows no button unless configured (user, 2026-10-31)
-- Getting mixed up with the parent repository's workspace, dependencies or configuration
 - Sloppy authentication (plaintext passwords, raw tokens in the DB, no CSRF protection)
 - Without a translator configured, the app fails to start, or resumes cannot be edited or viewed
 - Translations the person has not checked are saved or published
@@ -165,7 +163,6 @@ If a resume is written in one language, the other can be **drafted by AI and cor
 
 **Caution**: anyone can sign up, so while translation is enabled, any logged-in user can run the host's Claude CLI with the host's login. The public Render demo leaves translation disabled.
 
-### Separation from the parent repository
+### Repository workflow
 
-- Work on `feat/poc-hono-htmx`, cut from develop. **Do not create a PR, and do not push without asking** (user, 2026-10-31)
-- `poc/` is outside the parent's pnpm workspace and CI. The only change to the parent is `"!poc"` in the root `biome.json`, which keeps the parent's lint off `poc/` (designer, 2026-10-31)
+- Use the standalone repository root for development commands (user, 2026-11-24).
